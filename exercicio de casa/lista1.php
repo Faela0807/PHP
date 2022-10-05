@@ -7,21 +7,27 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="home.php" method="get">
-        Numero1: 
-        <input type="text" name="num"><br>
-        <input type="submit">
+    <form action="lista1.php" method="get">
+        Digite o Valor do Raio:
+        <input type="number" name="raio" />
+        <br/><br/>
+        <input type="submit" value="Calcular Raio">
 </form>
 <?php
-$raio= $_GET['num'];
+$raio= $_GET["raio"];
 
-echo"Raio: $raio<br />";
+// processamento
 
-echo"Perimetro: ", 2*m_PI*raio, "<br />;
+//area = pi * e ao quadrado
+$m_pi = 3.1415;
+//$area = $m_pi * $raio* $raio;
+$area = $m_pi * $raio**2;
+$perimetro = 2 * $m_pi * $raio;
 
-echo"Area: ,M_PI*$raio*$raio, "<br />;
+echo " <br/>O valor da Àrea ".$area. " Do raio informado " .$raio;
+echo " <br/>O valor do Perimetro do raio ".$raio. " é " .$perimetro;
+
 ?>
-
     
 </body>
 </html>
