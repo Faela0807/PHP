@@ -9,22 +9,22 @@
 <body>
     <!-- Faça um script que calcule a área de um quadrado, em seguida mostre o dobro desta área para o usuário. -->
     
-    <form action="lista6.php" method="get">
-    Digite o Valor do Quadrado:
-        <input type="number" name="quadrado" />
-        <br/><br/>
-        <input type="submit" value="Calcular area do quadraro">
-</form>
+    <form method="GET" action="">
+     Digite a largura do quadrado:
+      <input type="number" name="largura" />
+      <br />
+     Digite a altura do quadrado:
+     <input type="number" name="altura" />
+     <input type="submit" value= "calcular"/>
+     </form>
 
-<?php
-$areadoquadraro= $_GET["areadoquadraro"];
-
-// processamento
-
-//area = A = l**2 
-
-
-?>
-    
+  <?php
+  $largura = $_GET["largura"];
+  $altura = $_GET["altura"];
+  $area = $largura * $altura;
+  $dobroarea = $area * 2;
+  echo "Área: {$area}<br />Dobro da área: {$dobroarea}";
+  ?>
 </body>
+
 </html>
