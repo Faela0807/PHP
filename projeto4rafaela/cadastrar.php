@@ -17,6 +17,6 @@
           placeholder="Digite o telefone"
           required/>
          <br/><br/>
-         <input type="submit" value="Cadastra"/>
+         <input type="submit" value="Cadastrar"/>
          </form>
 <?php include_once'rodape.php'; ?>
