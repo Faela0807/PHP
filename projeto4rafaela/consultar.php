@@ -1,6 +1,12 @@
 <?php include_once'cabecalho.php'; ?>
-    <h1>Consulta Cliente</h1>
-    <hr>
-   
+    <h4>Consulta por Nome</h4>
+    <form action="" method="">
+        Nome:<br/>
+        <input type="text"
+        placeholder="Digite o nome para buscar"
+        name="nome" required />
+        <br/><br/>
+        <input type="submit" value="Buscar"/>
 
-    <?php include_once'rodape.php'; ?>
+</form>
+<?php include_once'./rodape.php'; ?>
