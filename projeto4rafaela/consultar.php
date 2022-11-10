@@ -35,15 +35,16 @@ if(mysqli_num_rows($result)>0){
         
     </tr>
     <?php
-    while($row = mysqli_fetch_array($result)) {
-        ?>
-        <tr>
+while($row = mysqli_fetch_array($result)) {
+    ?>
+    <tr>
         <td><?php echo $row["nome"]; ?></td>
         <td><?php echo $row["email"]; ?></td>
         <td><?php echo $row["telefone"]; ?></td>
         <td><?php echo $row["dtcadastro"]; ?></td>
-        <td><img src="./img/editar.jpg"/>
-    </td> <td><img src="./img/excluir.jfif"/></td>
+        <td>  <a href="editar.php?id=<?php echo $row["idcliente"]; ?>"> 
+        <img src="./img/editar.jpg"/> </a> </td>
+        </td> <td><img src="./img/excluir.jfif"/></td>
     </tr>
     <?php
     }
