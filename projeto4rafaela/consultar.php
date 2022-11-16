@@ -1,4 +1,13 @@
+
 <?php include_once'cabecalho.php'; ?>
+<script>
+    function excluir(id) {
+        if(confirm('Deseja realmente excluir')){
+            location.href='excluir.php?id='+id;
+        }
+    }
+
+</script>
 <h4>Consulta por Nome</h4>
 <form action="consultar.php" method="get">
   Nome:<br/>
@@ -42,9 +51,15 @@ while($row = mysqli_fetch_array($result)) {
         <td><?php echo $row["email"]; ?></td>
         <td><?php echo $row["telefone"]; ?></td>
         <td><?php echo $row["dtcadastro"]; ?></td>
-        <td>  <a href="editar.php?id=<?php echo $row["idcliente"]; ?>"> 
-        <img src="./img/editar.jpg"/> </a> </td>
-        </td> <td><img src="./img/excluir.jfif"/></td>
+    <td>
+        <a href="editar.php?id=<?php echo $row["idcliente"]; ?>)"> 
+           <img src="./img/editar.jpg"/> </a> </td>
+        </td>
+         <td>
+            <a href="#" onclick="excluir(<?php echo $row['idcliente']; ?>)">
+               <img src="./img/excluir.jfif"/>
+            </a> 
+        </td> 
     </tr>
     <?php
     }
