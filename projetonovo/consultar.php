@@ -1,13 +1,14 @@
-
 <?php include_once'cabecalho.php'; ?>
+
 <script>
     function excluir(id) {
-        if(confirm('Deseja realmente excluir')){
-            location.href='excluir.php?id='+id;
+        if (confirm('Deseja realmente excluir ?')) {
+            location.ref='excluir.php?id='+id;
         }
     }
 
 </script>
+ 
 <h4>Consulta por Nome</h4>
 <form action="consultar.php" method="get">
   Nome:<br/>
@@ -15,11 +16,6 @@
   placeholder="Digite o nome para buscar"
   name="nome" required />
   <br/><br/>
-  Foto : <br/>
-      <input type="file" name="foto" required="required"/>
-      <br/> <br/>
-      <input type="submit" value="Cadastrar Artigo"/>
-      <br/> <br/>
   <input type="submit" value="Buscar"/>
 
 </form>
@@ -29,7 +25,7 @@ if(isset($_GET["nome"])){
 $nome = $_GET["nome"];
 
 // abrir a conexão com o banco
-include_once'./conexao.php';
+include_once'./conexao2.php';
 
 // montar a instrução sql para buscar a informação
 $sql = "select * from cliente where nome like'".$nome."%'";
@@ -41,7 +37,7 @@ if(mysqli_num_rows($result)>0){
 <table class="table">
     <tr>
         <td>Nome</td>
-        <td>Email</td>
+        <td>E-mail</td>
         <td>Telefone</td>
         <td>Data de Cadastro</td>
         <td>Editar</td>
@@ -56,16 +52,16 @@ while($row = mysqli_fetch_array($result)) {
         <td><?php echo $row["email"]; ?></td>
         <td><?php echo $row["telefone"]; ?></td>
         <td><?php echo $row["dtcadastro"]; ?></td>
-        <td><?php echo $row["foto"]; ?></td>
-    <td>
-        <a href="editar.php?id=<?php echo $row["idcliente"]; ?>)"> 
-           <img src="./img/editar.jpg"/> </a> </td>
+
+        <td>  
+        <a href="editar.php?id=<?php echo $row["idcliente"]; ?>"> 
+         <img src="./img/editar1.png"/> </a> 
+        </td></td>
+
+        <td>
+        <a href="#" onclick="excluir(<?php echo $row['idcliente']; ?>)">
+            <img src="./img/excluir1.png"/></a> 
         </td>
-         <td>
-            <a href="#" onclick="excluir(<?php echo $row['idcliente']; ?>)">
-               <img src="./img/excluir.jfif"/>
-            </a> 
-        </td> 
     </tr>
     <?php
     }
